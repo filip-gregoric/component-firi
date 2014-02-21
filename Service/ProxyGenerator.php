@@ -1,16 +1,14 @@
 <?php
 
-namespace Bwc\FiriBundle;
+namespace BWC\Component\FiriBundle\Service;
 
-use Bwc\FiriBundle\Component\Iterator\IIterator;
-use Bwc\FiriBundle\Component\Item;
-use Bwc\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\Iterator\IIterator;
+use BWC\Component\FiriBundle\Component\IItem;
 
 /**
  * ProxyGenerator class.
  *
- * Used to generate fake item structure from iterators and
- * inject custom item attributes.
+ * Used to generate fake item structure from iterators.
  *
  * @author Igor Pantović <php.igor@gmail.com>
  */
@@ -48,7 +46,7 @@ class ProxyGenerator
         $lastItem    = $proxyRoot;
         $lastDepth   = $depth;
         foreach ($iterator as $item) {
-            /** @var $item \Bwc\FiriBundle\Component\IItem */
+            /** @var $item IItem */
             $proxy = $item->isolatedClone();
 
             // Descended

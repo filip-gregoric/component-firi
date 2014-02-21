@@ -1,9 +1,8 @@
 <?php
 
-namespace Bwc\FiriBundle\Component\Iterator;
+namespace BWC\Component\FiriBundle\Component\Iterator;
 
-use BWC\FiriBundle\Component\Exception\Exception;
-use BWC\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\IItem;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 /**

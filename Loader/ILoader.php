@@ -1,8 +1,8 @@
 <?php
 
-namespace Bwc\FiriBundle\Loader;
+namespace BWC\Component\FiriBundle\Loader;
 
-use Bwc\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\IItem;
 
 /**
  * ILoader interface
@@ -12,14 +12,15 @@ use Bwc\FiriBundle\Component\IItem;
 interface ILoader
 {
     /**
+     * @param string $dataClass
      * @param string $itemClass
      * @return IItem[]
      */
-    public function load($itemClass);
+    public function load($dataClass, $itemClass);
 
     /**
-     * @param string $itemClass
+     * @param string $dataClass
      * @return bool
      */
-    public function supports($itemClass);
+    public function supports($dataClass);
 }

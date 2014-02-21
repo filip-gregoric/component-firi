@@ -1,13 +1,13 @@
 <?php
 
-namespace Bwc\FiriBundle\Component;
+namespace BWC\Component\FiriBundle\Component;
 
 /**
  * IItem interface
  *
  * @author Igor Pantović <php.igor@gmail.com>
  */
-interface IItem extends \RecursiveIterator
+interface IItem extends \RecursiveIterator, NestedItemInterface
 {
     /**
      * Adds child.
@@ -37,13 +37,6 @@ interface IItem extends \RecursiveIterator
     public function hasChild(IItem $item);
 
     /**
-     * Gets parent.
-     *
-     * @return IItem
-     */
-    public function getParent();
-
-    /**
      * Sets parent.
      *
      * @param IItem $item
@@ -70,4 +63,9 @@ interface IItem extends \RecursiveIterator
      * @return array|\ArrayAccess
      */
     public function getAllChildren();
+
+    /**
+     * @param $dataObject
+     */
+    public function setData($dataObject);
 }

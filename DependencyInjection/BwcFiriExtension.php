@@ -1,6 +1,6 @@
 <?php
 
-namespace Bwc\FiriBundle\DependencyInjection;
+namespace BWC\Component\FiriBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class BwcFiriExtension extends Extension
+class BWCFiriExtension extends Extension
 {
     public function load(array $config, ContainerBuilder $container)
     {

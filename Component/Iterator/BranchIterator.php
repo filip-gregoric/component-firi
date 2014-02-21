@@ -1,8 +1,8 @@
 <?php
 
-namespace Bwc\FiriBundle\Component\Iterator;
+namespace BWC\Component\FiriBundle\Component\Iterator;
 
-use BWC\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\IItem;
 
 /**
  * BranchIterator class
@@ -14,7 +14,7 @@ class BranchIterator implements IIterator
     use IteratorTrait;
 
     /**
-     * @param \Bwc\FiriBundle\Component\IItem[]
+     * @param IItem[]
      */
     private $itemPath = array();
 
@@ -24,7 +24,7 @@ class BranchIterator implements IIterator
     private $position = 0;
 
     /**
-     * @param \Bwc\FiriBundle\Component\IItem $item Start item
+     * @param IItem $item Start item
      */
     public function __construct(IItem $item)
     {
@@ -68,7 +68,7 @@ class BranchIterator implements IIterator
     /**
      * Gets current item
      *
-     * @return \Bwc\FiriBundle\Component\IItem
+     * @return IItem
      */
     public function current()
     {

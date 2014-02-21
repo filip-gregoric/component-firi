@@ -1,9 +1,10 @@
 <?php
 
-namespace Bwc\FiriBundle;
+namespace BWC\Component\FiriBundle\Service;
 
-use Bwc\FiriBundle\Loader\ILoader;
-use Bwc\FiriBundle\Component\Exception\Exception;
+use BWC\Component\FiriBundle\Firi;
+use BWC\Component\FiriBundle\Loader\ILoader;
+use BWC\Component\FiriBundle\Component\Exception\Exception;
 
 /**
  * FiriFactory class
@@ -39,13 +40,14 @@ class FiriFactory
     }
 
     /**
-     * @param string $itemClass
+     * @param string $dataClass Must implement NestedItemInterface
+     * @param string $itemClass Must implement IItem interface
      * @return Firi
      */
-    public function create($itemClass)
+    public function create($dataClass, $itemClass)
     {
-        $loader = $this->findLoader($itemClass);
-        $firi = new Firi($itemClass, $loader, $this->proxyGenerator);
+        $loader = $this->findLoader($dataClass);
+        $firi = new Firi($dataClass, $itemClass, $loader, $this->proxyGenerator);
 
         return $firi;
     }
@@ -55,7 +57,7 @@ class FiriFactory
      *
      * @param string $itemClass
      * @return ILoader
-     * @throws \BWC\FiriBundle\Component\Exception\Exception If no loader supports class
+     * @throws Exception If no loader supports class
      */
     private function findLoader($itemClass)
     {

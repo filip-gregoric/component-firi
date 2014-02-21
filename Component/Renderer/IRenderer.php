@@ -1,8 +1,8 @@
 <?php
 
-namespace BWC\FiriBundle\Component\Renderer;
+namespace BWC\Component\FiriBundle\Component\Renderer;
 
-use BWC\FiriBundle\Component\Iterator\IIterator;
+use BWC\Component\FiriBundle\Component\Iterator\IIterator;
 
 /**
  * IRenderer interface
@@ -14,9 +14,9 @@ interface IRenderer
     /**
      * Sets iterator used when rendering
      *
-     * @param \Bwc\FiriBundle\Component\Iterator\IIterator $iterator
+     * @param IIterator $iterator
      *
-     * @return \Bwc\FiriBundle\Component\Iterator\IIterator
+     * @return IIterator
      */
     public function setIterator(IIterator $iterator);
 

@@ -1,8 +1,9 @@
 <?php
 
-namespace Bwc\FiriBundle\Loader;
+namespace BWC\Component\FiriBundle\Loader;
 
-use Bwc\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\NestedItemInterface;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping\ClassMetadata;
 
@@ -27,20 +28,40 @@ class OrmLoader implements ILoader
     }
 
     /**
+     * @param string $dataClass
      * @param string $itemClass
      * @return IItem[]
      */
-    public function load($itemClass)
+    public function load($dataClass, $itemClass)
     {
-        /** @var IItem[] $items */
-        $items = $this->em->getRepository($itemClass)->findAll();
+        $builtItems = [];
+
+        $getOrCreateitem = function (NestedItemInterface $item = null) use (&$builtItems, $itemClass) {
+            if (null === $item) {
+                return null;
+            }
+            $hash = spl_object_hash($item);
+            if (!isset($builtItems[$hash])) {
+                $builtItems[$hash] = new $itemClass();
+            }
+
+            return $builtItems[$hash];
+        };
+
+        /** @var NestedItemInterface[] $dataItems */
+        $dataItems = $this->em->getRepository($dataClass)->findAll();
 
         $roots = [];
-        foreach ($items as $item) {
-            if ($parent = $item->getParent()) {
-                $parent->addChild($item);
+        foreach ($dataItems as $dataItem) {
+            /** @var IItem $menuItem */
+            $menuItem = new $itemClass();
+            $menuItem->setData($dataItem);
+
+            /** @var IItem $parent */
+            if ($parent = $getOrCreateitem($dataItem->getParent())) {
+                $parent->addChild($menuItem);
             } else {
-                $roots[] = $item;
+                $roots[] = $menuItem;
             }
         }
 

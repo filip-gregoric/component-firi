@@ -1,6 +1,6 @@
 <?php
 
-namespace BWC\FiriBundle\Component\Renderer;
+namespace BWC\Component\FiriBundle\Component\Renderer;
 
 /**
  * HTMLRenderer class

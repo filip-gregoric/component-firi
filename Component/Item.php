@@ -1,8 +1,8 @@
 <?php
 
-namespace Bwc\FiriBundle\Component;
+namespace BWC\Component\FiriBundle\Component;
 
-use Bwc\FiriBundle\Component\Exception\Exception;
+use BWC\Component\FiriBundle\Component\Exception\Exception;
 
 /**
  * Item class

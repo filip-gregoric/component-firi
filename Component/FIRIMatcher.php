@@ -1,10 +1,10 @@
 <?php
 
-namespace Bwc\FiriBundle\Component;
+namespace BWC\Component\FiriBundle\Component;
 
-use BWC\FiriBundle\Component\Exception\Exception;
-use BWC\FiriBundle\Component\Filter\IFilter;
-use BWC\FiriBundle\Component\Iterator\BushIterator;
+use BWC\Component\FiriBundle\Component\Exception\Exception;
+use BWC\Component\FiriBundle\Component\Filter\IFilter;
+use BWC\Component\FiriBundle\Component\Iterator\BushIterator;
 
 /**
  * FIRIMatcher class.

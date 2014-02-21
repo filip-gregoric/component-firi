@@ -1,8 +1,8 @@
 <?php
 
-namespace Bwc\FiriBundle\Component\Iterator;
+namespace BWC\Component\FiriBundle\Component\Iterator;
 
-use BWC\FiriBundle\Component\Exception\Exception;
+use BWC\Component\FiriBundle\Component\Exception\Exception;
 
 /**
  * IteratorTrait trait
@@ -46,7 +46,7 @@ trait IteratorTrait
      *
      * @param $callback
      *
-     * @throws \BWC\FiriBundle\Component\Exception\Exception
+     * @throws \BWC\Component\FiriBundle\Component\Exception\Exception
      */
     private function callIfExists($callback)
     {

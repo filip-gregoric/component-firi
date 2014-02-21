@@ -1,8 +1,9 @@
 <?php
 
-namespace BWC\FiriBundle\Component\Renderer;
+namespace BWC\Component\FiriBundle\Component\Renderer;
 
-use BWC\FiriBundle\Component\Iterator\IIterator;
+use BWC\Component\FiriBundle\Component\Iterator\IIterator;
+use BWC\Component\FiriBundle\Component\IItem;
 
 /**
  * AbstractRenderer class
@@ -11,9 +12,8 @@ use BWC\FiriBundle\Component\Iterator\IIterator;
  */
 abstract class AbstractRenderer implements IRenderer
 {
-
     /**
-     * @var \Bwc\FiriBundle\Component\IItem[]
+     * @var IItem[]
      */
     protected $iterator;
 

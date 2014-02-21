@@ -1,6 +1,6 @@
 <?php
 
-namespace BWC\FiriBundle\Component\Exception;
+namespace BWC\Component\FiriBundle\Component\Exception;
 
 /**
  * Exception class

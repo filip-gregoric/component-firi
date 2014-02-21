@@ -1,6 +1,6 @@
 <?php
 
-namespace Bwc\FiriBundle\Component\Iterator;
+namespace BWC\Component\FiriBundle\Component\Iterator;
 
 /**
  * IIterator interface
@@ -12,14 +12,14 @@ interface IIterator extends \Iterator
     /**
      * @param $callback
      *
-     * @return \Bwc\FiriBundle\Component\Iterator\IIterator
+     * @return IIterator
      */
     public function setDescendCallback($callback);
 
     /**
      * @param $callback
      *
-     * @return \Bwc\FiriBundle\Component\Iterator\IIterator
+     * @return IIterator
      */
     public function setAscendCallback($callback);
 }

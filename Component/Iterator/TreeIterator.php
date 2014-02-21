@@ -1,6 +1,8 @@
 <?php
 
-namespace Bwc\FiriBundle\Component\Iterator;
+namespace BWC\Component\FiriBundle\Component\Iterator;
+
+use BWC\Component\FiriBundle\Component\IItem;
 
 /**
  * TreeIterator class
@@ -12,17 +14,17 @@ class TreeIterator implements IIterator
     use IteratorTrait;
 
     /**
-     * @var \Bwc\FiriBundle\Component\Iterator\BranchIterator;
+     * @var BranchIterator;
      */
     private $branch;
 
     /**
-     * @var \Bwc\FiriBundle\Component\Iterator\BushIterator;
+     * @var BushIterator;
      */
     private $bush;
 
     /**
-     * @var \Bwc\FiriBundle\Component\Iterator\IIterator
+     * @var IIterator
      */
     private $currentIterator;
 
@@ -117,7 +119,7 @@ class TreeIterator implements IIterator
     /**
      * Gets current item
      *
-     * @return \Bwc\FiriBundle\Component\IItem
+     * @return IItem
      */
     public function current()
     {

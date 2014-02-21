@@ -1,8 +1,8 @@
 <?php
 
-namespace BWC\FiriBundle\Component\Filter;
+namespace BWC\Component\FiriBundle\Component\Filter;
 
-use BWC\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\IItem;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**

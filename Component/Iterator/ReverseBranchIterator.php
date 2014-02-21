@@ -1,8 +1,8 @@
 <?php
 
-namespace Bwc\FiriBundle\Component\Iterator;
+namespace BWC\Component\FiriBundle\Component\Iterator;
 
-use BWC\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\IItem;
 
 /**
  * ReverseBranchIterator class
@@ -14,12 +14,12 @@ class ReverseBranchIterator implements IIterator
     use IteratorTrait;
 
     /**
-     * @var \Bwc\FiriBundle\Component\IItem
+     * @var IItem
      */
     private $start;
 
     /**
-     * @var \Bwc\FiriBundle\Component\IItem
+     * @var IItem
      */
     private $current;
 
@@ -40,7 +40,7 @@ class ReverseBranchIterator implements IIterator
     /**
      * Gets current item
      *
-     * @return \Bwc\FiriBundle\Component\IItem
+     * @return IItem
      */
     public function current()
     {
@@ -76,7 +76,7 @@ class ReverseBranchIterator implements IIterator
      */
     public function valid()
     {
-        return $this->current->getName() !== '__root__';
+        return $this->current->getParent() !== null;
     }
 
     /**

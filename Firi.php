@@ -1,12 +1,13 @@
 <?php
 
-namespace Bwc\FiriBundle;
+namespace BWC\Component\FiriBundle;
 
-use Bwc\FiriBundle\Component\Iterator\BushIterator;
-use Bwc\FiriBundle\Component\Iterator\BranchIterator;
-use Bwc\FiriBundle\Loader\ILoader;
-use Bwc\FiriBundle\Component\Exception\Exception;
-use Bwc\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Component\Iterator\BushIterator;
+use BWC\Component\FiriBundle\Component\Iterator\BranchIterator;
+use BWC\Component\FiriBundle\Loader\ILoader;
+use BWC\Component\FiriBundle\Component\Exception\Exception;
+use BWC\Component\FiriBundle\Component\IItem;
+use BWC\Component\FiriBundle\Service\ProxyGenerator;
 
 class Firi
 {
@@ -23,15 +24,22 @@ class Firi
     /**
      * @var string
      */
+    private $dataClass;
+
+    /**
+     * @var string
+     */
     private $itemClass;
 
     /**
+     * @param string $dataClass
      * @param string $itemClass
      * @param ILoader $loader
      * @param ProxyGenerator $proxyGenerator
      */
-    public function __construct($itemClass, ILoader $loader, ProxyGenerator $proxyGenerator)
+    public function __construct($dataClass, $itemClass, ILoader $loader, ProxyGenerator $proxyGenerator)
     {
+        $this->dataClass = $dataClass;
         $this->itemClass = $itemClass;
         $this->loader = $loader;
         $this->proxyGenerator = $proxyGenerator;
@@ -103,7 +111,7 @@ class Firi
             $root = new $this->itemClass();
         }
 
-        foreach ($this->loader->load($this->itemClass) as $item) {
+        foreach ($this->loader->load($this->dataClass, $this->itemClass) as $item) {
             $root->addChild($item);
         }
 
