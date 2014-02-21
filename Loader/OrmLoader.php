@@ -4,7 +4,7 @@ namespace Bwc\FiriBundle\Loader;
 
 use Bwc\FiriBundle\Component\IItem;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Doctrine\ORM\Mapping\ClassMetadata;
 
 /**
  * OrmLoader class
