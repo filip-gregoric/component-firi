@@ -1,0 +1,13 @@
+services:
+    bwc_firi.proxy_generator:
+        class: Bwc\FiriBundle\ProxyGenerator
+        public: false
+
+    bwc_firi.loader.orm:
+        class: Bwc\FiriBundle\Loader\OrmLoader
+        arguments: [@doctrine.orm.entity_manager]
+        tags: [{ name: firi.loader }]
+
+    bwc_firi.firi_factory:
+        class: Bwc\FiriBundle\FiriFactory
+        arguments: [@bwc_firi.proxy_generator]

@@ -1,0 +1,14 @@
+{
+    "name": "bwc/component-firi",
+    "type": "symfony-bundle",
+    "description": "Firi Component",
+    "require": {
+        "php": ">=5.3.3",
+        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "symfony/http-kernel": "~2.3"
+    },
+    "autoload": {
+        "psr-0": { "Bwc\\FiriBundle": "" }
+    },
+    "target-dir": "Bwc/FiriBundle"
+}
