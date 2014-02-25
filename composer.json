@@ -12,7 +12,7 @@
         "symfony/property-access": "~2.2"
     },
     "autoload": {
-        "psr-0": { "BWC\\FiriBundle": "" }
+        "psr-0": { "BWC\\Component\\FiriBundle": "" }
     },
-    "target-dir": "BWC/FiriBundle"
+    "target-dir": "BWC/Component/FiriBundle"
 }
