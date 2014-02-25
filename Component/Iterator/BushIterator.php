@@ -30,7 +30,7 @@ class BushIterator extends \RecursiveIteratorIterator implements IIterator
         parent::__construct($root, parent::SELF_FIRST);
         parent::setMaxDepth($maxDepth);
         $this->filter   = $filter;
-        $this->accessor = PropertyAccess::createPropertyAccessor();
+        $this->accessor = PropertyAccess::getPropertyAccessor();
         $this->iterated = new \SplObjectStorage();
     }
 
