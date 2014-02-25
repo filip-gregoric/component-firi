@@ -90,6 +90,9 @@ abstract class Item implements IItem
                 assignation is managed automatically.'
             );
         }
+        if ($item === $this) {
+            throw new Exception('Item can\'t be a child to itself');
+        }
 
         $this->parent = $item;
 

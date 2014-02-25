@@ -43,6 +43,7 @@ class OrmLoader implements ILoader
             $hash = spl_object_hash($item);
             if (!isset($builtItems[$hash])) {
                 $builtItems[$hash] = new $itemClass();
+                $builtItems[$hash]->setData($item);
             }
 
             return $builtItems[$hash];
@@ -54,8 +55,7 @@ class OrmLoader implements ILoader
         $roots = [];
         foreach ($dataItems as $dataItem) {
             /** @var IItem $menuItem */
-            $menuItem = new $itemClass();
-            $menuItem->setData($dataItem);
+            $menuItem = $getOrCreateitem($dataItem);
 
             /** @var IItem $parent */
             if ($parent = $getOrCreateitem($dataItem->getParent())) {
