@@ -36,7 +36,7 @@ class OrmLoader implements ILoader
     {
         $builtItems = [];
 
-        $getOrCreateitem = function (NestedItemInterface $item = null) use (&$builtItems, $itemClass) {
+        $getOrCreateitem = function ($item = null) use (&$builtItems, $itemClass) {
             if (null === $item) {
                 return null;
             }
@@ -58,7 +58,7 @@ class OrmLoader implements ILoader
             $menuItem = $getOrCreateitem($dataItem);
 
             /** @var IItem $parent */
-            if ($parent = $getOrCreateitem($dataItem->getParent())) {
+            if ($dataItem instanceof NestedItemInterface && $parent = $getOrCreateitem($dataItem->getParent())) {
                 $parent->addChild($menuItem);
             } else {
                 $roots[] = $menuItem;
