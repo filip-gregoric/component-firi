@@ -2,6 +2,8 @@
 
 namespace BWC\Component\FiriBundle;
 
+use BWC\Component\FiriBundle\Component\Filter\PropertyFilter;
+use BWC\Component\FiriBundle\Component\FIRIMatcher;
 use BWC\Component\FiriBundle\Component\Iterator\BushIterator;
 use BWC\Component\FiriBundle\Component\Iterator\BranchIterator;
 use BWC\Component\FiriBundle\Loader\ILoader;
@@ -32,6 +34,11 @@ class Firi
     private $itemClass;
 
     /**
+     * @var FIRIMatcher
+     */
+    private $matcher;
+
+    /**
      * @param string $dataClass
      * @param string $itemClass
      * @param ILoader $loader
@@ -43,6 +50,7 @@ class Firi
         $this->itemClass = $itemClass;
         $this->loader = $loader;
         $this->proxyGenerator = $proxyGenerator;
+        $this->matcher = new FIRIMatcher();
     }
 
     /**
@@ -94,6 +102,18 @@ class Firi
         }
 
         $item->getParent()->removeChild($item);
+    }
+
+    /**
+     * @param IItem $item
+     * @param array $properties
+     * @return IItem|null
+     */
+    public function match(IItem $item, array $properties)
+    {
+        $filter = new PropertyFilter();
+        
+        return $this->matcher->match($filter, $item, $properties);
     }
 
     public function fromArray(array $array, $item = null)
