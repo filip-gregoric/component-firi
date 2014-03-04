@@ -84,16 +84,23 @@ class Firi
 
     /**
      * @param IItem $item
-     * @param IItem $child
+     * @param Component\IItem $parent
+     * @return IItem
      */
-    public function addTo(IItem $item, IItem $child)
+    public function addChild(IItem $item, IItem $parent = null)
     {
-        $item->addChild($child);
+        if($parent){
+            $parent->addChild($item);
+        } else {
+            $this->getBush()->addChild($item);
+        }
+        return $item;
     }
 
     /**
      * @param IItem $item
-     * @throws Exception
+     * @return null|IItem
+     * @throws Component\Exception\Exception
      */
     public function remove(IItem $item)
     {
@@ -101,7 +108,10 @@ class Firi
             throw new Exception('Root item can\'t be removed');
         }
 
-        $item->getParent()->removeChild($item);
+        $parent = $item->getParent();
+        $parent->removeChild($item);
+
+        return $parent;
     }
 
     /**

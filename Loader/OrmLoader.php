@@ -74,6 +74,7 @@ class OrmLoader implements ILoader
      */
     public function supports($itemClass)
     {
+        $itemClass = ltrim($itemClass, '\\');
         /** @var ClassMetadata[] $metadata */
         $metadata = $this->em->getMetadataFactory()->getAllMetadata();
 

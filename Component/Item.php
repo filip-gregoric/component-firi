@@ -48,7 +48,7 @@ abstract class Item implements IItem
 
         $item->setParent($this);
 
-        if ($this implements OrderedItemInterface) {
+        if ( $this instanceof OrderedItemInterface) {
             usort($this->children, function ($a, $b) {
                 if ($a->getOrder() == $b->getOrder()) {
                     return 0;
