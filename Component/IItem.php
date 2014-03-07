@@ -68,4 +68,12 @@ interface IItem extends \RecursiveIterator, NestedItemInterface
      * @param $dataObject
      */
     public function setData($dataObject);
+
+    /**
+     * Compares this item to another.
+     *
+     * @param $anotherItem
+     * @return bool
+     */
+    public function equals($anotherItem);
 }

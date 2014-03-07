@@ -9,7 +9,7 @@ class PropertyFilter implements IFilter
     public function filter(IItem $item, array $options = array())
     {
         foreach ($options as $field => $val) {
-            if ($field != $val) {
+            if ($item->$field != $val) {
                 return false;
             }
         }

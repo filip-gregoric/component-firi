@@ -41,7 +41,7 @@ abstract class Item implements IItem
      */
     public function addChild(IItem $item)
     {
-        if ($item === $this) {
+        if ($item->equals($this)) {
             throw new Exception('Item can\'t be a child to itself');
         }
         $this->children[] = $item;
@@ -54,7 +54,7 @@ abstract class Item implements IItem
                     return 0;
                 }
 
-                return $a->getOrder() > $b->getOrder() ? -1 : 1;
+                return $a->getOrder() > $b->getOrder() ? 1 : -1;
             });
         }
 
@@ -76,7 +76,12 @@ abstract class Item implements IItem
      */
     public function hasChild(IItem $item)
     {
-        return in_array($item, $this->children);
+        foreach ($this->children as $child) {
+            if ($child->equals($item)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -100,7 +105,7 @@ abstract class Item implements IItem
                 assignation is managed automatically.'
             );
         }
-        if ($item === $this) {
+        if ($item == $this) {
             throw new Exception('Item can\'t be a child to itself');
         }
 
