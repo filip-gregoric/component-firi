@@ -58,7 +58,7 @@ class FIRIMatcher
      * @param IItem $rootItem
      * @param array $options
      *
-     * @return IItem
+     * @return IItem[]
      */
     public function matchAll($filter, IItem $rootItem, array $options = array())
     {

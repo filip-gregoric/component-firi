@@ -129,6 +129,18 @@ class Firi
     }
 
     /**
+     * @param IItem $item
+     * @param array $properties
+     * @return IItem[]
+     */
+    public function matchAll(IItem $item, array $properties)
+    {
+        $filter = new PropertyFilter();
+
+        return $this->matcher->matchAll($filter, $properties);
+    }
+
+    /**
      * @param array $dataArray
      * @param null|IItem $root
      * @return IItem
