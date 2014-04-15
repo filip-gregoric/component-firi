@@ -1,5 +1,5 @@
 {
-    "name": "bwc/component-firi",
+    "name": "appsco/component-firi",
     "type": "symfony-bundle",
     "description": "Firi Component",
     "require": {
