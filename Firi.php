@@ -156,6 +156,11 @@ class Firi
             unset($data['children']);
 
             foreach ($data as $property => $value) {
+                if ('title' === $property) {
+                    $value = html_entity_decode($value);
+                } elseif ('url' === $property) {
+                    $value = urldecode($value);
+                }
                 $propertyAccessor->setValue($item, $property, $value);
             }
             foreach ($children as $childData) {
@@ -193,4 +198,4 @@ class Firi
 
         return $root;
     }
-} 
+}
