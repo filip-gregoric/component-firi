@@ -4,7 +4,7 @@
     "description": "Firi Component",
     "require": {
         "php": ">=5.3.3",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
+        "doctrine/orm": ">=2.2.3,<2.6",
         "symfony/http-kernel": "~2.2",
         "symfony/options-resolver": "~2.2",
         "symfony/dependency-injection": "~2.2",
